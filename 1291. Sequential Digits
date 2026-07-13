@@ -1,0 +1,23 @@
+class Solution(object):
+    def sequentialDigits(self, low, high):
+        """
+        :type low: int
+        :type high: int
+        :rtype: List[int]
+        """
+        start = [12,123,1234,12345,123456,1234567,12345678,123456789]
+        count =[8,7,6,5,4,3,2,1]
+        counter =[11,111,1111,11111,111111,1111111,11111111,111111111]
+
+        res = []
+        for i in range(len(start)):
+            initiate = start[i]
+            n = count[i]
+            while n:
+                if initiate >= low and initiate <= high:
+                    res.append(initiate)
+                
+                n -= 1
+                initiate += counter[i]
+        
+        return res
