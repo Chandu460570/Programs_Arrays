@@ -1,0 +1,21 @@
+class Solution(object):
+    def gcdOfOddEvenSums(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n <= 0:
+            return 0
+        
+        sodd = n**n
+        seven = n*(n+1)
+
+        gcd = sodd
+
+        while(seven % sodd != 0):
+            temp = seven
+            seven = sodd
+            sodd = temp % sodd
+            gcd = sodd
+        
+        return sodd
